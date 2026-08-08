@@ -1,12 +1,3 @@
-À déposer dans ce dépôt avant publication :
-
-- audio/001.mp3 : Goizeko othoitza
-- audio/002.mp3 : Arratseko othoitza
-- audio/003.mp3 : Benedicite – Gratias – Angelus
-- audio/004.mp3 : Arrosarioa
-- audio/005.mp3 : Penitentzia
-- audio/006.mp3 : Kominiatzen delarik
-- audio/007.mp3 : Meza Saindua
-- othoitzeko-liburua.pdf
-
-Attention : messe.docx fourni est identique à meza.docx et ne contient pas la version française.
+À déposer dans ce dépôt :
+- audio/001.mp3 à audio/007.mp3
+- othoitzeko-liburua.pdf à la racine

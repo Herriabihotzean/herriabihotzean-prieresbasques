@@ -1,0 +1,28 @@
+Remplacer le lien actuel de « Prières usuelles » par :
+
+```html
+<a class="carte" id="prieres-usuelles-link"
+   href="https://herriabihotzean.github.io/herriabihotzean-prieresbasques/">
+ Prières usuelles
+</a>
+```
+
+Puis, juste après `langues.js` (ou avant `</body>`), ajouter :
+
+```html
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lien = document.getElementById("prieres-usuelles-link");
+  if (!lien) return;
+  lien.addEventListener("click", (e) => {
+    e.preventDefault();
+    let lang = "fr";
+    if (window.HerriaLanguages) lang = HerriaLanguages.getGeneralLanguage();
+    else { try { lang = localStorage.getItem("herria_langue") === "eu" ? "eu" : "fr"; } catch (_) {} }
+    location.href = lien.href + "?lang=" + lang;
+  });
+});
+</script>
+```
+
+Ce paramètre rend la transmission de la langue fiable même si le site principal utilise un domaine personnalisé différent de `github.io`.

@@ -1,11 +1,5 @@
 "use strict";
-document.addEventListener("DOMContentLoaded",()=>{
- const returnLang=sessionStorage.getItem(LANG_KEY)||"eu";
- const sections=[...document.querySelectorAll("[data-prayer-lang]")], buttons=[...document.querySelectorAll("[data-set-lang]")];
- const listen=document.querySelector(".audio-open-button"), panel=document.querySelector(".audio-panel"), audio=document.querySelector("audio");
- const home=document.querySelector("[data-home]"); if(home)home.href="index.html?lang="+returnLang;
- function show(l){if(l!=="fr"&&l!=="eu")l="eu";document.documentElement.lang=l;sections.forEach(s=>s.hidden=s.dataset.prayerLang!==l);buttons.forEach(b=>b.classList.toggle("active",b.dataset.setLang===l));listen.textContent=l==="eu"?"entzun":"écouter";}
- buttons.forEach(b=>b.addEventListener("click",()=>show(b.dataset.setLang)));
- listen.addEventListener("click",()=>{panel.hidden=!panel.hidden;listen.setAttribute("aria-expanded",panel.hidden?"false":"true");});
- show("eu"); // chaque sous-page s'ouvre toujours en basque
-});
+const HB_KEY="herria_langue";
+const UI={fr:{fr:"français",eu:"basque",listen:"écouter",back:"← retour à l’accueil",top:"haut de page ↑"},eu:{fr:"frantsesez",eu:"eskuaraz",listen:"entzun",back:"← harrera-horrirat itzuli",top:"orri gainera ↑"}};
+function interfaceLanguage(){const q=new URLSearchParams(location.search).get("ui");if(q==="fr"||q==="eu")return q;try{return localStorage.getItem(HB_KEY)==="eu"?"eu":"fr"}catch(_e){return "fr"}}
+document.addEventListener("DOMContentLoaded",()=>{const ui=interfaceLanguage(),t=UI[ui];let content="eu";const sections=[...document.querySelectorAll("[data-prayer-lang]")];const buttons=[...document.querySelectorAll(".language-choice")];const listen=document.querySelector(".audio-open-button"),panel=document.querySelector(".audio-panel");document.querySelectorAll("[data-nav-back]").forEach(a=>{a.textContent=t.back;a.href="index.html?lang="+ui});document.querySelectorAll("[data-nav-top]").forEach(a=>a.textContent=t.top);listen.textContent=t.listen;buttons.forEach(b=>{const code=b.dataset.lang;b.querySelector(".language-label").textContent=t[code];b.addEventListener("click",()=>show(code))});function show(lang){content=(lang==="fr"?"fr":"eu");sections.forEach(s=>s.hidden=s.dataset.prayerLang!==content);buttons.forEach(b=>{const active=b.dataset.lang===content;b.classList.toggle("active",active);b.setAttribute("aria-pressed",active?"true":"false")});/* IMPORTANT : aucune écriture dans localStorage ici. */}listen.addEventListener("click",()=>{panel.hidden=!panel.hidden;listen.setAttribute("aria-expanded",panel.hidden?"false":"true")});show("eu");});
