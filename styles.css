@@ -1,0 +1,21 @@
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,"Times New Roman",serif;color:#222;background:#eee7d8;line-height:1.62}
+.fond{min-height:100vh;background-image:linear-gradient(rgba(20,20,20,.42),rgba(20,20,20,.58)),url("https://herriabihotzean.github.io/herriabihotzean-site/fond-herriabihotzean.jpg");background-position:center;background-size:cover;background-attachment:fixed;padding:18px 14px 92px}
+.bouton{display:inline-block;padding:9px 14px;border:1px solid rgba(255,255,255,.85);border-radius:7px;background:rgba(20,55,32,.94);color:white;text-decoration:none;font-weight:bold;font-family:inherit;cursor:pointer}
+article{width:min(900px,100%);margin:0 auto;padding:clamp(24px,5vw,60px);border-radius:10px;background:rgba(255,255,255,.97);box-shadow:0 14px 46px rgba(0,0,0,.35)}
+article h1{text-align:center;color:rgb(20,55,32);font-size:clamp(2rem,6vw,3.3rem);line-height:1.08;margin:0 0 1.25rem;padding:.45rem .25rem .65rem;border-top:1px solid rgba(20,55,32,.28);border-bottom:1px solid rgba(20,55,32,.28)}
+article h2{text-align:center;color:rgb(20,55,32);font-size:clamp(1.18rem,3.5vw,1.55rem);line-height:1.3;margin:2.25rem auto 1rem;padding:.55rem .5rem;max-width:92%;border-top:1px solid rgba(20,55,32,.18);border-bottom:1px solid rgba(20,55,32,.18)}
+article h3,article h4{text-align:center;color:rgb(20,55,32);margin-top:1.7em}
+article p{text-align:justify} .blank{min-height:.7em}
+.doc-list{margin:1rem 0 1rem 1.7rem;padding-left:1rem} .doc-list li{margin:.25rem 0}
+.doc-table{width:100%;border-collapse:collapse;margin:1.1rem 0} .doc-table td{vertical-align:top;padding:5px 8px} .doc-table td p{margin-top:.15rem;margin-bottom:.15rem}
+.sticky-language-audio{position:sticky;top:0;z-index:5000;width:100%;padding:5px 10px 7px;background:rgba(20,55,32,.97);color:#fff;box-shadow:0 3px 12px rgba(0,0,0,.28);margin-bottom:14px}
+.language-switcher{display:flex;justify-content:center;align-items:center;gap:9px;margin:0 auto 4px;flex-wrap:wrap}
+.language-choice{appearance:none;border:1px solid rgba(255,255,255,.72);border-radius:7px;background:transparent;color:#fff;cursor:pointer;padding:4px 10px;font:inherit;font-size:.78rem}
+.language-choice.active{background:#fff;color:rgb(20,55,32);font-weight:bold}
+.audio-controls{display:flex;flex-direction:column;align-items:center;gap:5px} .audio-open-button{appearance:none;border:1px solid rgba(255,255,255,.82);border-radius:999px;padding:4px 13px;background:rgba(255,255,255,.12);color:#fff;font:inherit;font-size:.82rem;cursor:pointer}
+.audio-panel{display:flex;align-items:center;justify-content:center;width:min(560px,100%);margin:0 auto} .audio-panel[hidden]{display:none!important} .audio-panel audio{width:min(480px,100%);height:34px}
+.navigation-permanente{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:6000;width:auto;max-width:calc(100vw - 16px);padding:5px;display:flex;justify-content:center;gap:7px;border-radius:9px;background:rgba(0,0,0,.24);backdrop-filter:blur(3px)} .navigation-permanente .bouton{white-space:nowrap;padding:6px 10px;font-size:.78rem}
+.pied{width:min(900px,100%);margin:24px auto 0;padding:18px;text-align:center;color:white;background:rgba(0,0,0,.42);border-radius:8px}
+.index-card{width:min(760px,100%);margin:0 auto;padding:clamp(24px,5vw,54px);border-radius:10px;background:rgba(255,255,255,.97);box-shadow:0 14px 46px rgba(0,0,0,.35);text-align:center} .index-card h1{color:rgb(20,55,32);font-size:clamp(2rem,6vw,3.2rem);margin:.3rem 0 1.5rem} .menu-prieres{display:grid;gap:11px;max-width:620px;margin:0 auto} .menu-prieres .bouton{display:block;font-size:1.02rem;padding:12px 14px}
+.notice{border:1px solid #b88b37;background:#fff7df;padding:12px 14px;border-radius:7px;margin:1.2rem 0;text-align:left}
+@media(max-width:700px){.fond{padding:8px 5px 76px;background-attachment:scroll}article{padding:22px 14px}article p{text-align:justify;hyphens:auto;overflow-wrap:break-word}.sticky-language-audio{padding:3px 5px 5px}.navigation-permanente{bottom:6px;gap:4px;max-width:calc(100vw - 8px);padding:4px}.navigation-permanente .bouton{padding:5px 7px;font-size:.68rem}}

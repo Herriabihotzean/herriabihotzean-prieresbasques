@@ -1,0 +1,18 @@
+MODIFICATION À FAIRE DANS prieres.cantiques.html (dépôt herriabihotzean-site)
+
+Le lien du bouton « prières usuelles / ohiko othoitzak » doit mener vers :
+https://herriabihotzean.github.io/herriabihotzean-prieresbasques/
+
+Pour conserver explicitement la langue actuellement affichée, utilisez idéalement une fonction qui ajoute ?lang=fr ou ?lang=eu.
+Exemple si votre page possède des sections [data-history-lang] ou équivalent :
+
+<a id="lien-prieres-usuelles" href="https://herriabihotzean.github.io/herriabihotzean-prieresbasques/">Prières usuelles</a>
+<script>
+document.getElementById('lien-prieres-usuelles').addEventListener('click', function (e) {
+  const visible = [...document.querySelectorAll('[data-history-lang],[data-lang]')].find(s => !s.hidden);
+  const lang = visible?.dataset.historyLang || visible?.dataset.lang || document.documentElement.lang || 'fr';
+  this.href = 'https://herriabihotzean.github.io/herriabihotzean-prieresbasques/?lang=' + (lang === 'eu' ? 'eu' : 'fr');
+});
+</script>
+
+Si votre propres script langues.js utilise déjà un paramètre ou localStorage, on pourra adapter ce petit raccord à sa convention exacte.
