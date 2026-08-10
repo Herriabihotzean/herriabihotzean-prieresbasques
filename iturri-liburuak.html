@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ouvrages de référence — Herria Bihotzean</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.reference-card p{text-align:justify}
+.reference-suite{padding-left:3.2em}
+.reference-card em{font-style:italic}
+@media(max-width:700px){.reference-suite{padding-left:1.7em}}
+</style>
+</head>
+<body>
+<div class="fond">
+<div id="haut"></div>
+
+<div class="sticky-language-audio">
+  <nav class="language-switcher" aria-label="Choix de la langue">
+    <button type="button" class="language-choice" data-lang="fr" aria-pressed="false">
+      <img src="https://herriabihotzean.github.io/herriabihotzean-site/blason-france.svg" alt="">
+      <span class="language-label">français</span>
+    </button>
+    <button type="button" class="language-choice" data-lang="eu" aria-pressed="false">
+      <img src="https://herriabihotzean.github.io/herriabihotzean-site/blason-navarre.svg" alt="">
+      <span class="language-label">basque</span>
+    </button>
+  </nav>
+</div>
+
+<nav class="navigation-permanente">
+  <a class="bouton" id="back-link" href="index.html">← Retour à l’accueil</a>
+  <a class="bouton" href="#haut" id="top-link">haut de page ↑</a>
+</nav>
+
+<section id="section-fr" lang="fr">
+  <article class="reference-card">
+    <h1>OUVRAGES DE RÉFÉRENCE</h1>
+    <p>Prières : <em>Elizako liburua</em>, chanoine Pierre Narbaitz, vicaire général du diocèse de Bayonne, 1946.</p>
+<p>Benedicite : <em>Girichtinoaren Elizako </em><em>l</em><em>iburua</em>, Mgr Houbaut, 1938 ;</p>
+<p class="reference-suite">&emsp;&emsp;&emsp;&emsp;<em>Catechima Oloroeco diocezaren cerbutchuco</em>, 1706.</p>
+<p>Arrosarioaren othoitza : <em>Exercicio Izpirituala</em>, J.-B. Daranatz aphezak, 1901.</p>
+<p>Meza Saindua : <em>Elizako liburua</em>, Piarres Narbaitz kalonjeak, 1946.</p>
+<p>Frantseserat itzulpenak / traductions françaises : <em>Missel vespéral romain</em>, Dom Gaspard Lefebvre et chanoine Osty, 1961.</p>
+  </article>
+</section>
+
+<section id="section-eu" lang="eu" hidden>
+  <article class="reference-card">
+    <h1>ITURRI LIBURUAK</h1>
+    <p>Othoitzak : <em>Elizako liburua</em>, Piarres Narbaitz kalonjeak, 1946.</p>
+<p>Benedicite : <em>Girichtinoaren Elizako </em><em>l</em><em>iburua</em>, Mgr Houbaut, 1938 ;</p>
+<p class="reference-suite">&emsp;&emsp;&emsp;&emsp;<em>Catechima Oloroeco diocezaren cerbutchuco</em>, 1706.</p>
+<p>Arrosarioaren othoitza : <em>Exercicio Izpirituala</em>, J.-B. Daranatz aphezak, 1901.</p>
+<p>Meza Saindua : <em>Elizako liburua</em>, Piarres Narbaitz kalonjeak, 1946.</p>
+<p>Frantseserat itzulpenak / traductions françaises : <em>Missel vespéral romain</em>, Dom Gaspard Lefebvre et chanoine Osty, 1961.</p>
+  </article>
+</section>
+
+<div class="pied">© Herria Bihotzean</div>
+</div>
+
+<script>
+(function(){
+  const params = new URLSearchParams(location.search);
+  let lang = params.get("lang");
+  if (lang !== "eu" && lang !== "fr") {
+    try { lang = localStorage.getItem("herria_langue") === "eu" ? "eu" : "fr"; }
+    catch(e) { lang = "fr"; }
+  }
+
+  const ui = {
+    fr: {
+      fr:"français", eu:"basque",
+      back:"← Retour à l’accueil", top:"haut de page ↑",
+      title:"Ouvrages de référence — Herria Bihotzean"
+    },
+    eu: {
+      fr:"frantsesez", eu:"eskuaraz",
+      back:"← Harrera-horrirat itzuli", top:"orri gainera ↑",
+      title:"Iturri liburuak — Herria Bihotzean"
+    }
+  };
+
+  function displayLanguage(next) {
+    lang = next === "eu" ? "eu" : "fr";
+    document.documentElement.lang = lang;
+    document.getElementById("section-fr").hidden = lang !== "fr";
+    document.getElementById("section-eu").hidden = lang !== "eu";
+    document.getElementById("back-link").textContent = ui[lang].back;
+    document.getElementById("back-link").href = "index.html?lang=" + lang;
+    document.getElementById("top-link").textContent = ui[lang].top;
+    document.title = ui[lang].title;
+
+    document.querySelectorAll(".language-choice").forEach(btn => {
+      const code = btn.dataset.lang;
+      btn.classList.toggle("active", code === lang);
+      btn.setAttribute("aria-pressed", code === lang ? "true" : "false");
+      const label = btn.querySelector(".language-label");
+      if (label) label.textContent = ui[lang][code];
+    });
+  }
+
+  document.querySelectorAll(".language-choice").forEach(btn => {
+    btn.addEventListener("click", () => {
+      // This page changes only its own displayed language.
+      // It does not overwrite herria_langue.
+      displayLanguage(btn.dataset.lang);
+      history.replaceState(null, "", "iturri-liburuak.html?lang=" + btn.dataset.lang);
+    });
+  });
+
+  displayLanguage(lang);
+})();
+</script>
+</body>
+</html>
