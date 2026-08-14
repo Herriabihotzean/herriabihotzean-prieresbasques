@@ -64,7 +64,7 @@
 <script>
 (function(){
   const params = new URLSearchParams(location.search);
-  let lang = params.get("lang");
+let lang = params.get("lang") || params.get("ui");
   if (lang !== "eu" && lang !== "fr") {
     try { lang = localStorage.getItem("herria_langue") === "eu" ? "eu" : "fr"; }
     catch(e) { lang = "fr"; }
