@@ -99,7 +99,7 @@ function setText(lang) {
 
   if (back) {
     back.href =
-      "https://herriabihotzean.github.io/herriabihotzean-site/prieres-cantiques.html?lang=" +
+      "https://herriabihotzean.fr/prieres-cantiques.html?lang=" +
       lang;
   }
 
