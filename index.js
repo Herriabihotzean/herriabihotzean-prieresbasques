@@ -25,7 +25,7 @@ const INDEX_TEXT = {
     mass: "Sainte Messe",
     sources: "Ouvrages de référence",
     book: "Télécharger le livret imprimable",
-    back: "← Retour à l’accueil"
+    back: "← Retour à prières et cantiques"
   },
 
   eu: {
@@ -39,7 +39,7 @@ const INDEX_TEXT = {
     mass: "Meza Saindua",
     sources: "Iturri liburuak",
     book: "Othoitz-liburu inprimagarria deskargatu",
-    back: "← Harrera-horrirat itzuli"
+    back: "← Othoitz eta kantiketarat itzuli"
   }
 };
 
